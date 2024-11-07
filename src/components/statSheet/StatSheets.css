@@ -1,0 +1,111 @@
+
+#filters_pos {
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+#menu {
+    
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+#charts {
+    display: flex;
+    padding: 0;
+}
+#charts li {
+    margin: 0;
+    color: black;
+    font-size: 12px;
+    list-style: none;
+    padding-right:5em;
+    border-bottom: 3px solid blue;
+}
+#switcher {
+    padding: 0;
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+#switcher li:hover {
+    cursor: pointer;
+}
+
+#statistic-tab {
+    color: black;
+    display: grid;
+    
+    gap: 1em;
+    padding: 1em;
+    list-style: none;
+    font-size: 0.8rem;
+    
+}
+.player-grid {
+    grid-template-columns: 1fr 3.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1.5fr 1.5fr 1.5fr;
+}
+.team-grid {
+    grid-template-columns:  3.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1.5fr 1.5fr 1.5fr;
+}
+#statistic-tab  li {
+    margin: 1em;
+    text-align: left;
+    
+}
+#statistic-tab li:first-child {
+    opacity: 70%;
+}
+#statistic-tab:hover {
+    
+    border-radius: 10px;
+    background-color: antiquewhite;
+}
+#stats ul{
+    padding: 0;
+    
+}
+#stats-filter {
+    padding: 0;
+    color: black;
+    list-style: none;
+    display: grid;
+    gap: 1em;
+    font-size: 0.8rem;
+}
+#stats-filter ul {
+    margin: 0;
+}
+#stats-filter li {
+    opacity: 80%;
+    margin: 1em;
+    font-size: 0.6rem;
+    text-align: left;
+
+}
+#dropdown {
+    background-color: black;
+    border: 1px solid #ccc;
+    z-index: 10;
+    padding: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    position: absolute; 
+
+}
+
+#dropdown li {
+    color: white;
+    padding: 0.5em;
+    cursor: pointer;
+
+}
+
+#dropdown li:hover {
+    background-color: #6b6b6b;
+}
+.active-switcher {
+    color: blue;
+}
+
+
