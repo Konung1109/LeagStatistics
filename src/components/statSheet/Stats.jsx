@@ -86,7 +86,7 @@ export default function Stats({switcher, filter}) {
     return (
         <section key={switcher} id="stats" >
             <ul key={filteredData}>
-                {filteredData.map((item) => <StatisticTab select = {switcher} key = {switcher === "player" ? item.id : item.fteam} {...item}  />)}      
+                {filteredData.map((item) => <StatisticTab select = {switcher} key = {switcher === "player" ? item.id : item.id} {...item}  />)}      
             </ul>
         </section>
     )
