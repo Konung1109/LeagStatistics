@@ -27,3 +27,11 @@ section {
   width: 100%;
   margin: 0  auto;
 }
+@media (min-width: 1024px) and (max-width: 1540px) {
+  section {
+    max-width: 80rem;
+    width: 100%;
+    margin: 0  auto;
+  }
+}
+
