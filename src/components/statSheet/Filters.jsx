@@ -5,13 +5,20 @@ import React, {useEffect, useState} from 'react'
 export default function Filters({switcher, onFilterChange}) {
     const [filterChoice, setFilterChoice] = useState({
         year: YEARS[0],     
-        team: 'All Teams',  
-        position: 'All Positions',
+        team: TEAMS[0],  
+        position: POSITIONS[0],
     });
     const [isOpen, setIsOpen] = useState(false)
     const toggleFilter = (filterName) => {
         setIsOpen(prev => (prev === filterName ? null : filterName));
     };
+    useEffect(() => {
+        setFilterChoice({
+          year: YEARS[0],
+          team: 'All Teams',
+          position: 'All Positions',
+        });
+      }, [switcher]);
     useEffect(() => {
         onFilterChange(Object.values(filterChoice));
     }, [filterChoice]);
@@ -20,19 +27,20 @@ export default function Filters({switcher, onFilterChange}) {
             ...prev, [filterType]: filterChoice
         }))
     }
+    const isDisabled = switcher === 'team';
     return (<section >
                 <div id="filters_pos">
                     <div >                 
-                        <TabFilter isOpen = {isOpen === 'year'} onToggle = {() => toggleFilter('year')} data = {YEARS} filterSelect = {(choice) => filtersChoiceHandler('year', choice)} >{YEARS[0]}</TabFilter>                    
+                        <TabFilter isOpen = {isOpen === 'year'} onToggle = {() => toggleFilter('year')} selectedValue={filterChoice.year}   data = {YEARS} filterSelect = {(choice) => filtersChoiceHandler('year', choice)}>{filterChoice.year}</TabFilter>                    
                     </div>
                     <div >
                         <div>
-                        <TabFilter isOpen = {isOpen === 'teams'} onToggle = {() => toggleFilter('teams')} data={TEAMS} filterSelect = {(choice) => filtersChoiceHandler('team', choice)} >{TEAMS[0]}</TabFilter>
+                        <TabFilter isOpen = {isOpen === 'teams'} onToggle = {!isDisabled ? () => toggleFilter('teams') : undefined} selectedValue={filterChoice.team} disabled = {isDisabled} data={TEAMS} filterSelect = {(choice) => filtersChoiceHandler('team', choice)} >{filterChoice.team}</TabFilter>
                         </div>
                     </div>
                     <div >
                         <div>
-                        <TabFilter isOpen = {isOpen === 'positions'} onToggle = {() => toggleFilter('positions')} data={POSITIONS} filterSelect = {(choice) => filtersChoiceHandler('position', choice)} >{POSITIONS[0]}</TabFilter>
+                        <TabFilter isOpen = {isOpen === 'positions'} onToggle = {!isDisabled ? () => toggleFilter('positions') :undefined} selectedValue={filterChoice.position} disabled = {isDisabled} data={POSITIONS} filterSelect = {(choice) => filtersChoiceHandler('position', choice)} >{filterChoice.position}</TabFilter>
                         </div>
                     </div>
                 </div>
