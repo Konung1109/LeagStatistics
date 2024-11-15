@@ -19,7 +19,7 @@ body {
   margin: 0;
   min-width: 320px;
   color: rgb(189, 189, 189);
-  
+  background-color: #F5F5F5;
 }
 #main-section {
   min-height: 80vh;

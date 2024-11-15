@@ -5,3 +5,48 @@
     padding: 20px;
     margin: 0;
 }
+#buble-img {
+    width: 5rem;
+    height: 5.5rem;
+    padding-right: 2rem;
+}
+.season-section {
+    background-color: white;
+    margin: 0;
+}
+.buble-info {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 0.5px solid rgb(211, 211, 211);
+    
+}
+.buble-info h3 {
+    margin: 0;
+}
+.buble-info p {
+    margin: 0;
+    opacity: 50%;
+    font-weight: 400;
+}
+.buble-game {
+    border-bottom: 0.5px solid rgb(211, 211, 211);
+}
+.buble-time {
+    display: flex;
+}
+.buble-time p {
+    font-weight: 400;
+    font-size: 12px;
+    color: rgb(131, 127, 127);
+    padding-right: 4px;
+    margin: 5px 0px 0px 0px;
+}
+.buble-result {
+    display: flex;
+    align-items: center;
+}
+.buble-result img {
+    width: 30px;
+    height: 30px;
+}

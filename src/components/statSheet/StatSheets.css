@@ -7,7 +7,7 @@
 #menu {
     
     margin: 0;
-    padding: 0;
+    padding: 20px;
     background-color: white;
 }
 #charts {
@@ -27,7 +27,9 @@
     display: flex;
     list-style: none;
     gap: 1rem;
+    margin: 0px 0px 2rem 0px;
 }
+
 #switcher li:hover {
     cursor: pointer;
 }
