@@ -3,10 +3,11 @@ import logo from '../../assets/header/ball.png'
 import login from '../../assets/header/user-interface.png'
 
 import headerStyles from  './Header.module.css'
-export default function Header() {
+export default function Header({selectedTopic}) {
     const [prevSelect, setSelect] = useState('stats')
     function clickHandler(prevSelect) {
         setSelect(prevSelect)
+        selectedTopic(prevSelect)
     }
     
     return (
