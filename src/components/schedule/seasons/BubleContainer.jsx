@@ -1,31 +1,29 @@
 import './Seasons.css' 
 import lublinHerb from '../../../assets/seasons/lublin-herb.png'
-export default function BubleContainer() {
+import { useState, useEffect } from 'react'
+import BubleGames from './BubleGames';
+const logoMapping = {
+    lublinHerb: lublinHerb
+    
+};
+export default function BubleContainer({ prevBuble, handleBubleSelect, ...item }) {
+    const isActive = prevBuble === item.id;
+    
+    
+    const logoUrl = logoMapping[item.logo] || null;
     return (
         <div className='buble'>
-            <div className='buble-info'>
-                <img id='buble-img' src={lublinHerb} alt="" />
+            <div>
+            <div id='buble-info' className={isActive ? '': 'buble-wide'} onClick={() => handleBubleSelect(item.id)} >
+                <img id='buble-img' src={logoUrl} alt="" />
                 <div>
-                    <h3>Lublin Buble</h3>
-                    <p>27.06.2024</p>
+                    <h3>{item.name}</h3>
+                    <p>{item.bubleDate}</p>
                 </div>
             </div>
-            <div className='buble-game'>
-                <div className='buble-time'>
-                    <p>Gm 1</p>
-                    <p>|</p>
-                    <p>Tuesday Oct 1</p>
-                </div>
-                <div className='buble-result'>   
-                        <img src={lublinHerb} alt="" />
-                        <p>HL</p>
-                        <p>@</p>
-                        
-                        <img src={lublinHerb} alt="" />
-                        <p>WC</p>
-                        <p></p>
-                </div>
+            {isActive ? <BubleGames></BubleGames>: null} 
             </div>
+            
         </div>
     )
 }

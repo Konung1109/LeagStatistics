@@ -31,6 +31,13 @@ async function getData2022() {
     return rows
   
 }
+async function getBubles2023() {
+  const [rows] = await db.query(`
+    SELECT * FROM statistics.bubles2023;
+    `)
+    return rows
+  
+}
 async function getData2021() {
   const [rows] = await db.query(`
     SELECT *
@@ -60,6 +67,11 @@ app.get("/statistics/2023", async (req, res) => {
   const data = await getData2023()
   res.json(data)
 });
+app.get("/statistics/bubles2023", async (req, res) => {
+  const data = await getBubles2023()
+  
+  res.json(data)
+})
 app.get("/statistics/2022", async (req, res) => {
   /*db.query('SELECT * FROM statistic_data_2023', (err, results) => {
     if (err) {

@@ -3,7 +3,7 @@
     border-radius: 5px;
     color: black;
     padding: 20px;
-    margin: 0;
+    margin-bottom: 20px;
 }
 #buble-img {
     width: 5rem;
@@ -13,18 +13,25 @@
 .season-section {
     background-color: white;
     margin: 0;
+    padding: 20px;
 }
-.buble-info {
+#buble-info {
     display: flex;
     align-items: center;
     padding-bottom: 1rem;
     border-bottom: 0.5px solid rgb(211, 211, 211);
     
 }
-.buble-info h3 {
+.buble-wide {
+    margin-bottom: 20px;
+}
+#buble-info:hover {
+    cursor: pointer;
+}
+#buble-info h3 {
     margin: 0;
 }
-.buble-info p {
+#buble-info p {
     margin: 0;
     opacity: 50%;
     font-weight: 400;
