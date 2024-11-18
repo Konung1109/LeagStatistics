@@ -1,148 +1,30 @@
 import './Seasons.css'
 import lublinHerb from '../../../assets/seasons/lublin-herb.png'
-export default function BubleGames() {
+import BubleGamesResult from './BubleGamesResult'
+import { useState, useEffect } from 'react'
+export default function BubleGames({bubleInd}) {
+    const [bubleGamesDataPrev, setBubleGamesData] = useState([]);
+    useEffect(() => {
+        const fetchBubleGamesData = async () => {
+            try {
+              const response = await fetch(`http://localhost:5000/statistics/bublesgames2023?bId=${bubleInd}`);
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              const result = await response.json();
+              setBubleGamesData(result);
+            } catch (error) {
+              console.error('Error fetching data:', error);
+            }
+          };
+        
+          fetchBubleGamesData();
+        }, []);
     return <>
         <div className='buble-game'>
-                <div className='buble-time'>
-                    <p>Gm 1</p>
-                    <p>|</p>
-                    <p>Tuesday Oct 1</p>
-                </div>
-                <div className='buble-result'>   
-                        <img src={lublinHerb} alt="" />
-                        <p>HL</p>
-                        <p>@</p>
-                        
-                        <img src={lublinHerb} alt="" />
-                        <p>WC</p>
-                        <p></p>
-                </div>
-                <div className='buble-time'>
-                    <p>Gm 1</p>
-                    <p>|</p>
-                    <p>Tuesday Oct 1</p>
-                </div>
-                <div className='buble-result'>   
-                        <img src={lublinHerb} alt="" />
-                        <p>HL</p>
-                        <p>@</p>
-                        
-                        <img src={lublinHerb} alt="" />
-                        <p>WC</p>
-                        <p></p>
-                </div>
-                <div className='buble-time'>
-                    <p>Gm 1</p>
-                    <p>|</p>
-                    <p>Tuesday Oct 1</p>
-                </div>
-                <div className='buble-result'>   
-                        <img src={lublinHerb} alt="" />
-                        <p>HL</p>
-                        <p>@</p>
-                        
-                        <img src={lublinHerb} alt="" />
-                        <p>WC</p>
-                        <p></p>
-                </div>
-                <div className='buble-time'>
-                    <p>Gm 1</p>
-                    <p>|</p>
-                    <p>Tuesday Oct 1</p>
-                </div>
-                <div className='buble-result'>   
-                        <img src={lublinHerb} alt="" />
-                        <p>HL</p>
-                        <p>@</p>
-                        
-                        <img src={lublinHerb} alt="" />
-                        <p>WC</p>
-                        <p></p>
-                </div>
-                <div className='buble-time'>
-                    <p>Gm 1</p>
-                    <p>|</p>
-                    <p>Tuesday Oct 1</p>
-                </div>
-                <div className='buble-result'>   
-                        <img src={lublinHerb} alt="" />
-                        <p>HL</p>
-                        <p>@</p>
-                        
-                        <img src={lublinHerb} alt="" />
-                        <p>WC</p>
-                        <p></p>
-                </div>
-                <div className='buble-time'>
-                    <p>Gm 1</p>
-                    <p>|</p>
-                    <p>Tuesday Oct 1</p>
-                </div>
-                <div className='buble-result'>   
-                        <img src={lublinHerb} alt="" />
-                        <p>HL</p>
-                        <p>@</p>
-                        
-                        <img src={lublinHerb} alt="" />
-                        <p>WC</p>
-                        <p></p>
-                </div>
-                <div className='buble-time'>
-                    <p>Gm 1</p>
-                    <p>|</p>
-                    <p>Tuesday Oct 1</p>
-                </div>
-                <div className='buble-result'>   
-                        <img src={lublinHerb} alt="" />
-                        <p>HL</p>
-                        <p>@</p>
-                        
-                        <img src={lublinHerb} alt="" />
-                        <p>WC</p>
-                        <p></p>
-                </div>
-                <div className='buble-time'>
-                    <p>Gm 1</p>
-                    <p>|</p>
-                    <p>Tuesday Oct 1</p>
-                </div>
-                <div className='buble-result'>   
-                        <img src={lublinHerb} alt="" />
-                        <p>HL</p>
-                        <p>@</p>
-                        
-                        <img src={lublinHerb} alt="" />
-                        <p>WC</p>
-                        <p></p>
-                </div>
-                <div className='buble-time'>
-                    <p>Gm 1</p>
-                    <p>|</p>
-                    <p>Tuesday Oct 1</p>
-                </div>
-                <div className='buble-result'>   
-                        <img src={lublinHerb} alt="" />
-                        <p>HL</p>
-                        <p>@</p>
-                        
-                        <img src={lublinHerb} alt="" />
-                        <p>WC</p>
-                        <p></p>
-                </div>
-                <div className='buble-time'>
-                    <p>Gm 1</p>
-                    <p>|</p>
-                    <p>Tuesday Oct 1</p>
-                </div>
-                <div className='buble-result'>   
-                        <img src={lublinHerb} alt="" />
-                        <p>HL</p>
-                        <p>@</p>
-                        
-                        <img src={lublinHerb} alt="" />
-                        <p>WC</p>
-                        <p></p>
-                </div> 
+            {bubleGamesDataPrev.map((item) => <BubleGamesResult key = {item.id} {...item}></BubleGamesResult>)}
+                
+                
         </div> 
     </>
 }

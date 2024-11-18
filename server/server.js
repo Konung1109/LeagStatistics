@@ -38,6 +38,13 @@ async function getBubles2023() {
     return rows
   
 }
+async function getBublesGames2023(id) {
+  const [rows] = await db.query(`
+    SELECT * FROM statistics.bublegames2023 WHERE bubleInd = ${id};
+    `)
+    return rows
+  
+}
 async function getData2021() {
   const [rows] = await db.query(`
     SELECT *
@@ -69,6 +76,11 @@ app.get("/statistics/2023", async (req, res) => {
 });
 app.get("/statistics/bubles2023", async (req, res) => {
   const data = await getBubles2023()
+  res.json(data)
+})
+app.get("/statistics/bublesgames2023", async (req, res) => {
+  const {bId} = req.query;
+  const data = await getBublesGames2023(bId)
   
   res.json(data)
 })

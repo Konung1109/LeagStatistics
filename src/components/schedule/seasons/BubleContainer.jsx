@@ -1,6 +1,6 @@
 import './Seasons.css' 
 import lublinHerb from '../../../assets/seasons/lublin-herb.png'
-import { useState, useEffect } from 'react'
+
 import BubleGames from './BubleGames';
 const logoMapping = {
     lublinHerb: lublinHerb
@@ -21,7 +21,7 @@ export default function BubleContainer({ prevBuble, handleBubleSelect, ...item }
                     <p>{item.bubleDate}</p>
                 </div>
             </div>
-            {isActive ? <BubleGames></BubleGames>: null} 
+            {isActive ? <BubleGames bubleInd = {prevBuble} ></BubleGames>: null} 
             </div>
             
         </div>

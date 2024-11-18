@@ -4,7 +4,7 @@ export default function Season2024() {
     const [dataPrev, setBubleData] = useState([]);
     const [prevBuble, setBuble] = useState(null);
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchBubleData = async () => {
           try {
             const response = await fetch('http://localhost:5000/statistics/bubles2023');
             if (!response.ok) {
@@ -17,7 +17,7 @@ export default function Season2024() {
           }
         };
       
-        fetchData();
+        fetchBubleData();
       }, []);
       const handleBubleSelect = (id) => {
         setBuble(prevBuble === id ? null : id);

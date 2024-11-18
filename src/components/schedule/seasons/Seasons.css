@@ -22,6 +22,12 @@
     border-bottom: 0.5px solid rgb(211, 211, 211);
     
 }
+.buble-game-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; /* Простір між командами */
+    align-items: center
+}
 .buble-wide {
     margin-bottom: 20px;
 }
@@ -38,9 +44,9 @@
 }
 .buble-game {
     border-bottom: 0.5px solid rgb(211, 211, 211);
-}
-.buble-time {
-    display: flex;
+    display: flex; 
+    flex-direction: column;
+    padding-bottom: 20px;
 }
 .buble-time p {
     font-weight: 400;
@@ -49,11 +55,35 @@
     padding-right: 4px;
     margin: 5px 0px 0px 0px;
 }
-.buble-result {
+.buble-result-teams {
     display: flex;
     align-items: center;
+    
+    width: 25%;
 }
-.buble-result img {
+.guest {
+    justify-content: start;
+}
+.home {
+    justify-content: end;
+}
+.buble-result-teams img {
     width: 30px;
     height: 30px;
+    margin-right: 10px;
+}
+.buble-result  {
+    display: flex;
+    gap: 10px;
+    border-bottom: 0.5px solid grey;
+    border-top: 0.5px solid grey;
+    justify-content: center; /* Центрування рахунку по горизонталі */
+    align-items: center; /* Центрування рахунку по вертикалі */
+    text-align: center; /* Вирівнювання тексту всередині */
+    flex-grow: 1;
+}
+.buble-time {
+    display: flex;
+    align-items: center;
+    
 }
