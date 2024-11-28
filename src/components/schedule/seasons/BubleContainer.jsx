@@ -1,10 +1,14 @@
 import './Seasons.css' 
 import lublinHerb from '../../../assets/seasons/lublin-herb.png'
-
+import warsawHerb from '../../../assets/seasons/warsawHerb.png'
+import wroclawHerb from '../../../assets/seasons/wroclawHerb.png'
+import katowiceHerb from '../../../assets/seasons/katowiceHerb.png'
 import BubleGames from './BubleGames';
 const logoMapping = {
-    lublinHerb: lublinHerb
-    
+    lublinHerb: lublinHerb,
+    warsawHerb: warsawHerb,
+    wroclawHerb: wroclawHerb,
+    katowiceHerb: katowiceHerb
 };
 export default function BubleContainer({ prevBuble, handleBubleSelect, ...item }) {
     const isActive = prevBuble === item.id;
