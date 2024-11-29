@@ -12,7 +12,7 @@ app.use(express.json());
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '11092003Qw!1',
+  password: '21051998Qw!1',
   database: 'statistics',
 }).promise();
 async function getData2023() {
