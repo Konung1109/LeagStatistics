@@ -1,17 +1,28 @@
 import './Standings.css'
+import YearDropDown from '../YearDropDown';
 import { useState, useEffect } from 'react';
 import StandingStatistic from './StandingStatistic';
 export default function Standings() {
     const [standStatisticData, setStandStatisticData] = useState([]);
+    const [prevSeason, setSeason] = useState('2023')
+    const [yearData, setYearData] = useState([])
+    function handleSeasonSelection(prevSeason) {
+      setSeason(prevSeason)
+    }
     useEffect(() => {
         const fetchStandStatisticData = async () => {
             try {
-              const response = await fetch(`http://localhost:5000/statistics/seasonstanding2023`);
-              if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+              const responseStandData = await fetch(`http://localhost:5000/statistics/seasonstanding2023`);
+              const responseYearData = await fetch ('http://localhost:5000/statistics/filters_year')
+              
+              if (!responseStandData.ok || !responseYearData.ok) {
+                throw new Error(`HTTP error! status: ${!responseStandData.ok ? responseStandData.status : responseYearData.status}`);
               }
-              const result = await response.json();
-              setStandStatisticData(result);
+              const resultStandData = await responseStandData.json();
+              const resultYearData = await responseYearData.json();
+              
+              setStandStatisticData(resultStandData);
+              setYearData(resultYearData)
             } catch (error) {
               console.error('Error fetching data:', error);
             }
@@ -20,8 +31,13 @@ export default function Standings() {
           fetchStandStatisticData();
         }, []);
     return <>
-    <div class="table-container">
-        <div class="table-title">PALS Season 2023</div>
+    <div className="standingFilter">
+            <h1 >{prevSeason} Season Standings</h1>
+            <YearDropDown yearData = {yearData} yearSelected={handleSeasonSelection}></YearDropDown>
+    </div>
+    <div className="table-container">
+        
+        <div className="table-title"></div>
         <table>
             <thead>
                 <tr>

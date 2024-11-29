@@ -8,14 +8,16 @@ export default function Header({selectedTopic}) {
     function clickHandler(prevSelect) {
         setSelect(prevSelect)
         selectedTopic(prevSelect)
+       
     }
+    
     
     return (
         <header className={headerStyles.header}>
             <ul className={headerStyles.ul}>
                 <img className={headerStyles.img} src={logo} alt="logo" />
                 <li className={prevSelect == 'stats' ? headerStyles.active : ''} onClick = {() => clickHandler('stats')}>STATS</li>
-                <li className={prevSelect == 'schedule' ? headerStyles.active : ''} onClick = {() => clickHandler('schedule')}>SCHEDULE </li>
+                <li className={prevSelect == 'schedule' ? headerStyles.active : ''} onClick = {() => clickHandler('schedule')} >SCHEDULE </li>
                 <li className={prevSelect == 'standings' ? headerStyles.active : ''} onClick = {() => clickHandler('standings')}>STANDINGS</li>
             </ul>
             
