@@ -1,7 +1,8 @@
 import './Seasons.css'
-import lublinHerb from '../../../assets/seasons/lublin-herb.png'
+
 import BubleGamesResult from './BubleGamesResult'
 import { useState, useEffect } from 'react'
+
 export default function BubleGames({bubleInd}) {
     const [bubleGamesDataPrev, setBubleGamesData] = useState([]);
     useEffect(() => {
@@ -22,7 +23,7 @@ export default function BubleGames({bubleInd}) {
         }, []);
     return <>
         <div className='buble-game'>
-            {bubleGamesDataPrev.map((item) => <BubleGamesResult key = {item.id} {...item}></BubleGamesResult>)}
+            {bubleGamesDataPrev.map((item) => <BubleGamesResult key = {item.id}  {...item}></BubleGamesResult>)}
                 
                 
         </div> 
