@@ -8,10 +8,11 @@ export default function Season2024() {
     const [prevBuble, setBuble] = useState(null);
     const [prevSeason, setSeason] = useState('2023')
     const [dataYear, setDataYear] = useState([])
+    
     useEffect(() => {
         const fetchBubleData = async () => {
           try {
-            const responseBubleData = await fetch(`http://localhost:5000/statistics/bubles2023?sId=${prevSeason}`);
+            const responseBubleData = await fetch(`http://localhost:5000/statistics/bubles?sId=${prevSeason}`);
             const responseYearData = await fetch ('http://localhost:5000/statistics/filters_year')
             if (!responseBubleData.ok || !responseYearData.ok) {
               throw new Error(`HTTP error! status: ${!responseBubleData.ok ? responseBubleData.status : responseYearData.status}`);
@@ -26,12 +27,13 @@ export default function Season2024() {
         };
       
         fetchBubleData();
-      }, []);
+      }, [prevSeason]);
       const handleBubleSelect = (id) => {
         setBuble(prevBuble === id ? null : id);
       };
       function handleSeasonSelection(prevSeason) {
         setSeason(prevSeason)
+        
       }
     return (
         <section className="season-section">
@@ -41,7 +43,7 @@ export default function Season2024() {
               <YearDropDown yearData = {dataYear} yearSelected={handleSeasonSelection}></YearDropDown>
             </div>
             </div>
-            {dataPrev.map((item) => <BubleContainer key={item.id} prevBuble = {prevBuble} handleBubleSelect={handleBubleSelect}  {...item}></BubleContainer>)}
+            {dataPrev.map((item) => <BubleContainer key={item.id} prevBuble = {prevBuble} season = {prevSeason} handleBubleSelect={handleBubleSelect}  {...item}></BubleContainer>)}
             
         </section>
     )

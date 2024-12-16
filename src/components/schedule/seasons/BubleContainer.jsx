@@ -10,7 +10,7 @@ const logoMapping = {
     wroclawHerb: wroclawHerb,
     katowiceHerb: katowiceHerb
 };
-export default function BubleContainer({ prevBuble, handleBubleSelect, ...item }) {
+export default function BubleContainer({ prevBuble, season, handleBubleSelect, ...item }) {
     const isActive = prevBuble === item.id;
     
     
@@ -25,7 +25,7 @@ export default function BubleContainer({ prevBuble, handleBubleSelect, ...item }
                     <p>{item.bubleDate}</p>
                 </div>
             </div>
-            {isActive ? <BubleGames bubleInd = {prevBuble} ></BubleGames>: null} 
+            {isActive ? <BubleGames bubleInd = {prevBuble} season = {season} ></BubleGames>: null} 
             </div>
             
         </div>
