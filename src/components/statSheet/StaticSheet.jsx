@@ -13,7 +13,7 @@ export default function StaticSheet() {
     }
     function filtersClickHandler(selectetFilter)  {
         setFilterSet(selectetFilter)
-        console.log(filtersSet)
+      
     }
     return (
         <menu id="menu">   

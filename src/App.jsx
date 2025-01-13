@@ -1,26 +1,31 @@
 import Header from './components/header/Header'
 import StaticSheet from './components/statSheet/StaticSheet'
 import './App.css'
-import { useState } from 'react'
 import Footer from './components/footer/Footer'
 import Season2024 from './components/schedule/seasons/Season2024'
 import Standings from './components/standings/Standings'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
-  const [prevTopic, setTopic] = useState("stats")
-  function topicHandler(selectedValue) {
-    setTopic(selectedValue)
-  }
+  
   
   return (
+    
+    <Router>
+  
     <main>
-      <Header selectedTopic={topicHandler}></Header>
+    
+      <Header />
       <section id='main-section'>
-        {prevTopic === 'schedule' ? <Season2024></Season2024> : prevTopic === 'standings' ? <Standings></Standings> : <StaticSheet></StaticSheet>}
-        
+        <Routes>
+            <Route path="/" element={<StaticSheet />} />
+            <Route path="/schedule" element={<Season2024 />} />
+            <Route path="/standings" element={<Standings />} />
+             
+        </Routes>
       </section>
-      <Footer></Footer>
+      <Footer />
     </main>
-   
+  </Router>
      
       
    

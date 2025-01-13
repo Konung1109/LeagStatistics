@@ -1,7 +1,12 @@
 import logo from '../../assets/header/ball.png';
 import { IMAGES } from './images';
+import { useLocation } from 'react-router-dom';
 import './Footer.css'
 export default function Footer() {
+    const location = useLocation()
+    if (location.pathname === '/admin-panel') {
+    return null;
+  }
     return (
     <footer >
         <section className='footer-content'>

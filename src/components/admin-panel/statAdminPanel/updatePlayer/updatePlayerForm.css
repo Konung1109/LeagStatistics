@@ -1,0 +1,39 @@
+.edit-player-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 1000px;
+    margin: auto;
+  
+}
+
+.form-columns {
+    display: flex;
+    gap: 1rem;
+}
+.warning-text {
+    font-size: 10px;
+    color: red;
+    margin: 0;
+}
+
+.form-column {
+    flex: 1;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    padding: 0.3rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
