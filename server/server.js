@@ -19,9 +19,6 @@ const db = mysql.createConnection({
   password: '21051998Qw!1',
   database: 'statistics',
 }).promise();
-
-
-// Перевірка підключення
 db.connect(err => {
   if (err) {
     console.error('Error connecting to the database:', err);

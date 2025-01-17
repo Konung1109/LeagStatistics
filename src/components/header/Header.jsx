@@ -8,14 +8,14 @@ import { useState, useEffect } from 'react';
 import AdminSideBar from '../admin-panel/AdminSideBar';
 
 export default function Header() {
-  const [loginStatus, loginStatusSet] = useState(false); // Стан показу форми входу
-  const [isAdmin, setIsAdmin] = useState(false); // Стан залогіненого користувача
+  const [loginStatus, loginStatusSet] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false); 
   const [panelActive, setActivePanel] = useState(false)
   const [actLocation, setActLocation] = useState('stat')
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     if (token) {
-      setIsAdmin(true); // Автоматичне входження
+      setIsAdmin(true);
     }
   }, []);
   const location = useLocation();
@@ -32,13 +32,13 @@ export default function Header() {
     loginStatusSet(false)
   }
   function handleLoginSuccess(token) {
-    setIsAdmin(true); // Встановлюємо статус залогіненого адміна
-    localStorage.setItem("authToken", token); // Зберігаємо токен у localStorage
+    setIsAdmin(true); 
+    localStorage.setItem("authToken", token); 
   }
   const handleLogout = () => {
     
     setIsAdmin(false);
-    localStorage.removeItem("authToken"); // Видаляємо токен
+    localStorage.removeItem("authToken"); 
     
   };
   return (

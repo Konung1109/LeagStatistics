@@ -11,7 +11,6 @@ export default function UpdateStanding({hideClick}) {
             run_difference: ''
             })
     const [teamStandInt, setTeamStandInt] = useState({
-            //id: '',
             season: ''
     })
     const [error, setError] = useState('');

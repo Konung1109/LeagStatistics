@@ -1,6 +1,5 @@
 const mysql = require('mysql2');
 
-// Підключення до бази даних
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -8,7 +7,6 @@ const db = mysql.createConnection({
   database: 'statistics',
 }).promise();
 
-// Експорт функцій із запитами
 module.exports = {
     getData2023: async () => {
         const [rows] = await db.query(`
