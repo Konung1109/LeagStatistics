@@ -10,7 +10,7 @@ function authenticateToken(req, res, next) {
       if (err) {
         return res.status(403).send({ message: "Forbidden" });
       }
-      req.user = user; // Зберігаємо інформацію про користувача
+      req.user = user;
       next();
     });
   }

@@ -15,8 +15,8 @@ export default function Filters({switcher, onFilterChange}) {
     useEffect(() => {
         setFilterChoice({
           year: YEARS[0],
-          team: 'All Teams',
-          position: 'All Positions',
+          team: TEAMS[0],
+          position: POSITIONS[0],
         });
       }, [switcher]);
     useEffect(() => {

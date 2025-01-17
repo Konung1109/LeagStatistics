@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import '../admin-panel.css'
 
-export default function FindedPlayer({playerData}) {
+export default function FindedPlayer({playerData, errorFinding}) {
     const [findPlayer, setFindPlayer] = useState([])
     const [error, setError] = useState('')
+
     const fetchDataPlayer = async (e) => {
         setError('');
         setFindPlayer([]);
@@ -29,6 +30,7 @@ export default function FindedPlayer({playerData}) {
           if (!response.ok) {
             const { message } = await response.json();
             setError(message || 'An error occurred');
+            errorFinding(true)
             return;
           }
     
@@ -45,8 +47,7 @@ export default function FindedPlayer({playerData}) {
       }, [playerData]);
     return (
         <>
-        
-        <table className='find-player'>
+        {error ? (<p className='error-message'>{error}</p>): (<table className='find-player'>
         <thead>
         <tr className='table-column'>
           <th>ID</th>
@@ -93,7 +94,8 @@ export default function FindedPlayer({playerData}) {
                 </tr>
             ))}
         </tbody>
-</table>
+</table>)}
+        
         </>
     )
 }

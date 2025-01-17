@@ -12,8 +12,9 @@ const logoMapping = {
 };
 export default function BubleContainer({ prevBuble, season, handleBubleSelect, ...item }) {
     const isActive = prevBuble === item.id;
-    
-    
+    const utcDate = new Date(item.bubleDate);
+    const localDate = utcDate.toLocaleDateString("pl-PL");
+        
     const logoUrl = logoMapping[item.logo] || null;
     return (
         <div className='buble'>
@@ -22,7 +23,7 @@ export default function BubleContainer({ prevBuble, season, handleBubleSelect, .
                 <img id='buble-img' src={logoUrl} alt="" />
                 <div>
                     <h3>{item.name}</h3>
-                    <p>{item.bubleDate}</p>
+                    <p>{localDate}</p>
                 </div>
             </div>
             {isActive ? <BubleGames bubleInd = {prevBuble} season = {season} ></BubleGames>: null} 

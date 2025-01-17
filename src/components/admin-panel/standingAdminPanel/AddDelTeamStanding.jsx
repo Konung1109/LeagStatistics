@@ -1,9 +1,10 @@
-import {  act, useState } from 'react';
-import '../../admin-panel.css';
-export default function AddDellTeam({hideClick}) {
+import {  useState } from 'react';
+
+export default function AddDellTeamStanding({hideClick}) {
     const [teamData, setTeamData] = useState({
       team: '',
-      action: ''
+      action: '',
+      season: ''
     })
     
     const [error, setError] = useState('');
@@ -26,19 +27,19 @@ export default function AddDellTeam({hideClick}) {
     const handleSubmit = async (e) => {
         e.preventDefault(); 
      
-        const { team, action} = teamData;
+        const { team,season, action} = teamData;
 
-        if (!team || !action) {
+        if (!team ||!season || !action) {
             setError('All fields are required!');
             return;
         }
         try {
-            const response = await fetch('http://localhost:5000/statistics/addDelTeam', {
+            const response = await fetch('http://localhost:5000/statistics/addDellTeamStanding', {
               method: action === 'add' ? 'POST' : 'DELETE',
               headers: {
                 'Content-Type': 'application/json',
               },
-              body: JSON.stringify({ team, action }),
+              body: JSON.stringify({ team, action, season }),
             });
       
             if (!response.ok) {
@@ -47,8 +48,8 @@ export default function AddDellTeam({hideClick}) {
               return;
             }
       
-            setSuccessMessage(action === 'add' ? 'Team was added' : 'Team was deleted');
-            setTeamData({ team: '', action: '' });
+            setSuccessMessage(action === 'add' ? 'Team standing was added' : 'Team standing was deleted');
+            setTeamData({ team: '', action: '', season: '' });
             setError('');
           } catch (err) {
             console.error('Error in team operation:', err);
@@ -76,6 +77,17 @@ export default function AddDellTeam({hideClick}) {
                     value={teamData.team}
                     onChange={handleChange}
                     placeholder="Team name"
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="season">Season</label>
+                    <input
+                    type="number"
+                    id="season"
+                    name='season'
+                    value={teamData.season}
+                    onChange={handleChange}
+                    placeholder="Season"
                     />
                 </div>
                 {error && <p className="error-message">{error}</p>}

@@ -17,7 +17,8 @@ export default function FindingPlayerForm({findPlayer}) {
         const handleSubmit = async (e) => {
             e.preventDefault();
             findPlayer(delPlayerData);
-
+            
+            
         }
         return (
             <>

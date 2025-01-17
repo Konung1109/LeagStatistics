@@ -134,6 +134,16 @@ nav button {
   padding: 8px;
   text-align: center;
 }
+.form-groups {
+  display: flex;
+  gap: 1.5rem;
+}
+.error-message {
+  color: red
+}
+.success-message {
+  color: green;
+}
 
 
 

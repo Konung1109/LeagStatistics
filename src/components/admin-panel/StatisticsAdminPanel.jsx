@@ -19,12 +19,8 @@ export default function StatisticsAdminPanel() {
             return null;
         }
       };
-      const handleOverlayClick = (e) => {
-  
-        if (e.target.classList.contains('popup-overlay')) {
-          hideClick();
-        }
-      };
+      
+      
     return (
         <>
         <button onClick={() => setActiveContent("addDeleteYear")}>ADD/DELETE YEAR</button>

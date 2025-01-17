@@ -38,7 +38,7 @@ export default function Season2024() {
     return (
         <section className="season-section">
             <div className="seasonFilter">
-            <h1 >{prevSeason} Sesason Schedule</h1>
+            <h1 >{prevSeason} Season Schedule</h1>
             <div>
               <YearDropDown yearData = {dataYear} yearSelected={handleSeasonSelection}></YearDropDown>
             </div>

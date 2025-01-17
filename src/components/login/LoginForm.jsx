@@ -21,7 +21,7 @@ export default function LoginForm({hideClick, onLoginSuccess}) {
 
       if (response.ok) {
         setLoginMessage(result.message || "Login successful");
-        onLoginSuccess(result.token); // Передаємо токен наверх
+        onLoginSuccess(result.token); 
         hideClick();
       } else {
         setLoginMessage(result.message || "Login failed");
